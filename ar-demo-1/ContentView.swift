@@ -20,7 +20,14 @@ struct ContentView : View {
                 HStack(spacing: 30){
                     ForEach(0 ..< self.models.count){
                         index in
-                        Text(self.models[index])
+                        Button(action: {
+                            print("DEBUG: selected model: \(self.models[index])")
+                        }){
+                            Image(uiImage: UIImage(named: self.models[index])!)
+                                .resizable()
+                                .frame(height: 80)
+                                .aspectRatio(1/1, contentMode: .fit)
+                        }.buttonStyle(PlainButtonStyle())
                     }
                 }
             }

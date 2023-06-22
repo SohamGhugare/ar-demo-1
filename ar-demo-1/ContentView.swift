@@ -9,8 +9,22 @@ import SwiftUI
 import RealityKit
 
 struct ContentView : View {
+    
+    var models: [String] = ["gramophone", "robot_walk_idle", "teapot", "toy_biplane_idle"]
+    
     var body: some View {
-        Text("Hello World!!!")
+        ZStack(alignment: .bottom) {
+            ARViewContainer()
+            
+            ScrollView(.horizontal, showsIndicators: false){
+                HStack(spacing: 30){
+                    ForEach(0 ..< self.models.count){
+                        index in
+                        Text(self.models[index])
+                    }
+                }
+            }
+        }
     }
 }
 
